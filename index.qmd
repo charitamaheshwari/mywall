@@ -194,3 +194,11 @@ vcd::structable(degree ~ grass, data = B) |> vcd :: mosaic(type ="expected")
 ```{r}
 mosaic::xchisq.test(degree ~ grass, data=B)
 ```
+
+
+
+
+This is the end....
+Hold you breath and count to 10...
+- Adele
+
