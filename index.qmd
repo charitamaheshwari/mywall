@@ -6,6 +6,7 @@ format:
   html:
     toc: true
     toc-depth: 2
+code-tools: true
 ---
 
 # Spine
@@ -22,13 +23,26 @@ This folder is ours for the ten days. Three tables, three shapes.
 - **Panel B** (`panel-B.csv`) — GSS 2010: `degree`, `grass`, hours of work and rest. `mntlhlth` is *days* of poor mental health — a Quant. Do not mosaic it.
 - **Panel C** (`panel-C.csv`) — gapminder 2007: life expectancy, GDP per capita, population by country.
 
+Found tables train the mark. A campus Free Hunch, if we collect one, is a **made** panel of the same pair type — new people, old grammar. It does not replace A, B, or C.
+
+# Panel A — body / measure
+
+*height_cm, weight_kg, waist_cm are Quant. sex is Qual.*
+
+### 1. See the table
+
+What is a case? Which columns are Quant / Qual? What is missing?
+
+We have 6 quantitative variables in our data -  age,weight_kg,height_cm,wasit_cm,hip_cm,chest_cm
+and only 1 qualitative varaible - sex 
+
+
 ```{r}
 library(tidyverse)
 library(skimr)
 library(ggformula)
-
 ```
-
+ 
 ## read my panel a csv file
 
 ```{r}
@@ -36,19 +50,8 @@ A <- read_csv("data/panel_A.csv")
 B <- read_csv("data/panel_B.csv")
 C <- read_csv("data/panel_C.csv")
 
-
 ```
 
-```{r}
-#| eval: false
-myPanelAData <- read_csv("data/panel_A.csv")
-myPanelAData <- read_csv("data/panel_B.csv")
-myPanelAData <- read_csv("data/panel_C.csv")
-
-myPanelAData
-```
-
-### 1. See the table
 
 ```{r}
 glimpse(A)
@@ -58,11 +61,25 @@ skim(A)
 
 ### 2. Ask
 
-One question this table can answer. One it cannot. Write both. Who is heavier between men and women ? what is the proportion of men and women ? How does waist size vary for men and women? How does hip size vary for men and women? How does chest size vary for men and women? Which sex has a larger variation in their age ranges ? Who is taller between men and women ? What are the age ranges in the dataset ? What is the variation in chest size in the given dataset? What is the variation in waist size in the given dataset ? What is the variation in hip size in the given dataset ? What is the variation in height in the given dataset ? What is the variation in weight in the given dataset ?
+One question this table can answer. One it cannot. Write both. 
+Who is heavier between men and women ? 
+what is the proportion of men and women ? 
+How does waist size vary for men and women? 
+How does hip size vary for men and women? 
+How does chest size vary for men and women?
+Which sex has a larger variation in their age ranges ? 
+Who is taller between men and women ? 
+What are the age ranges in the dataset ? 
+What is the variation in chest size in the given dataset? 
+What is the variation in waist size in the given dataset ? 
+What is the variation in hip size in the given dataset ? 
+What is the variation in height in the given dataset ? 
+What is the variation in weight in the given dataset ?
 
 ### 3. Choose a mark
 
-Geom, map mark, or (later) test that matches the pair type. Name it before you code. Who is heavier between men and women ? -histogram
+Geom, map mark, or (later) test that matches the pair type. Name it before you code.
+Who is heavier between men and women ? -histogram
 
 what is the proportion of men and women ? -bar graph
 
@@ -88,66 +105,84 @@ What is the variation in height in the given dataset ? -density
 
 What is the variation in weight in the given dataset ? -density
 
+### 4. Predict 
+
+We predict the graph to depict the chest size and 
+
+### 5. Make 
+
+Who is heavier between men and women ?
 ```{r}
 A |> gf_histogram(~weight_kg,fill = ~ sex,bins = 50)
 
 ```
 
+what is the proportion of men and women ?
 ```{r}
 A |> gf_bar(~ sex,fill= ~ sex)
 
 ```
 
+How does waist size vary for men and women?
 ```{r}
 A |> gf_histogram(~waist_cm,fill= ~ sex)
 
 ```
 
+How does hip size vary for men and women?
 ```{r}
 A |> gf_density(~hip_cm,fill= ~ sex)
-
 ```
 
+How does chest size vary for men and women?
 ```{r}
 A |> gf_density(~chest_cm,fill= ~ sex)
 
 ```
 
+Which sex has a larger variation in their age ranges ?
 ```{r}
 A |> gf_bar(~ age, fill = ~ sex)
 
 ```
 
+Who is taller between men and women ?
 ```{r}
 A |> gf_histogram(~height_cm,fill = ~ sex,bins = 50)
 
 ```
 
+What are the age ranges in the dataset ?
 ```{r}
 A |> gf_bar(~ age,)
 
 ```
 
+What is the variation in weight in the given dataset?
 ```{r}
 A |> gf_density(~ weight_kg,)
 
 ```
 
+What is the variation in height in the given dataset?
 ```{r}
 A |> gf_density(~ height_cm,)
 
 ```
 
+What is the variation in waist size in the given dataset?
 ```{r}
 A |> gf_density(~ waist_cm,)
 
 ```
 
+What is the variation in hip size in the given dataset?
 ```{r}
 A |> gf_density(~ hip_cm,)
 
 ```
 
+What is the variation in chest size in the given dataset?
 ```{r}
 A |> gf_density(~ chest_cm)
 
@@ -157,6 +192,8 @@ A |> gf_density(~ chest_cm)
 
 We all found the density graph comparing chest sizes of men and women interesting because according to the graph, men have a bigger chest size than women which is quite unexpected. Men also have larger variation in the sizes while women have more difference in density for different sizes. This is surprising because according to the bar graph, the ratio of women is slightly more than men, in comparison. We also found the density graph comparing hip size of men and women surprising because it is contrasting the general belief that women have wider hips.
 
+### 7. Limit
+
 ```{r}
 A |> group_by(sex) |> summarise(mean_chest_cm=mean(chest_cm,na.rm=T))
 
@@ -164,38 +201,75 @@ A |> group_by(sex) |> summarise(mean_chest_cm=mean(chest_cm,na.rm=T))
 
 ```{r}
 mosaic::t_test(chest_cm ~ sex, data= A)
+
 ```
+
+
+# Panel B — category / talk
+
+degree × grass is Qual + Qual. mntlhlth is Quant — it belongs in a histogram or a grouped violin, not a mosaic.
+
+### 1. See the table
+
+What is a case? Which columns are Quant / Qual? What is missing?
+
+The quantitative variables in  the dataset are -hours of relaxation(hrsrelax), hours of labour (hrsl) and mental health(mntlhlth) {3}
+The qualitative variables in  the dataset are-degree, marijuana(grass) {2}
 
 ```{r}
 glimpse(B)
 skim(B)
+
 ```
 
+### 2. Ask
+Does the education of a person affect their opinions on whether grass should be legal or not?
+
+### 3. Choose a mark
+Does the education of a person affect their opánions on whether grass should be legal or not?
+- Mosaic Graph
+
+### 4.Predict
+we predict that a person pursuing a higher education degree would want marijuana to be legal, to regulate
+stress levels and mental health.
+
+### 5. Make
 ```{r}
 B_mod <- B |> drop_na(grass)
+
 ```
 
 ```{r}
 dim(B_mod)
+
 ```
 
 ```{r}
 vcd::structable(degree ~ grass, data = B)
+
 ```
 
 ```{r}
-vcd::structable(degree ~ grass, data = B) |> vcd :: mosaic()
+vcd:: structable(degree ~ grass, data = B) |> vcd:: mosaic(labeling_args = list(rot_labels = c(top = 45)), margins = c(top = 6))
+
 ```
 
 ```{r}
-vcd::structable(degree ~ grass, data = B) |> vcd :: mosaic(type ="expected")
+vcd:: structable(degree ~ grass, data = B) |> vcd:: mosaic(type="expected", labeling_args = list(rot_labels = c(top = 45)), margins = c(top = 6))
+
 ```
+
+### 6. Say
+looking at the graph, the ratio of people who think marijuana should be legal and not Legal appears to be similar, in each individual degree.
+Saying that, it is surprising information to see that the percentage of high schoolers who want marijuana to be legal is way larger than any other degrees.
+But this could also be because the number of high schoolers in this dataset is much more.
+
+### 7. Limit
 
 ```{r}
 mosaic::xchisq.test(degree ~ grass, data=B)
+
 ```
-
-
 
 
 This is the end....

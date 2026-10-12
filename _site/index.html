@@ -156,10 +156,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#spine" id="toc-spine" class="nav-link active" data-scroll-target="#spine">Spine</a></li>
-  <li><a href="#introduction-the-tables-we-own" id="toc-introduction-the-tables-we-own" class="nav-link" data-scroll-target="#introduction-the-tables-we-own">Introduction — the tables we own</a>
+  <li><a href="#introduction-the-tables-we-own" id="toc-introduction-the-tables-we-own" class="nav-link" data-scroll-target="#introduction-the-tables-we-own">Introduction — the tables we own</a></li>
+  <li><a href="#panel-a-body-measure" id="toc-panel-a-body-measure" class="nav-link" data-scroll-target="#panel-a-body-measure">Panel A — body / measure</a>
   <ul class="collapse">
   <li><a href="#read-my-panel-a-csv-file" id="toc-read-my-panel-a-csv-file" class="nav-link" data-scroll-target="#read-my-panel-a-csv-file">read my panel a csv file</a></li>
   </ul></li>
+  <li><a href="#panel-b-category-talk" id="toc-panel-b-category-talk" class="nav-link" data-scroll-target="#panel-b-category-talk">Panel B — category / talk</a></li>
   </ul>
 </nav>
     </div>
@@ -168,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Group 3 — Bodies and talk</h1>
+<div class="quarto-title-block"><div><h1 class="title">Group 3 — Bodies and talk</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Studio wall</p>
 </div>
 
@@ -207,6 +209,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Panel B</strong> (<code>panel-B.csv</code>) — GSS 2010: <code>degree</code>, <code>grass</code>, hours of work and rest. <code>mntlhlth</code> is <em>days</em> of poor mental health — a Quant. Do not mosaic it.</li>
 <li><strong>Panel C</strong> (<code>panel-C.csv</code>) — gapminder 2007: life expectancy, GDP per capita, population by country.</li>
 </ul>
+<p>Found tables train the mark. A campus Free Hunch, if we collect one, is a <strong>made</strong> panel of the same pair type — new people, old grammar. It does not replace A, B, or C.</p>
+</section>
+<section id="panel-a-body-measure" class="level1">
+<h1>Panel A — body / measure</h1>
+<p><em>height_cm, weight_kg, waist_cm are Quant. sex is Qual.</em></p>
+<section id="see-the-table" class="level3">
+<h3 class="anchored" data-anchor-id="see-the-table">1. See the table</h3>
+<p>What is a case? Which columns are Quant / Qual? What is missing?</p>
+<p>We have 6 quantitative variables in our data - age,weight_kg,height_cm,wasit_cm,hip_cm,chest_cm and only 1 qualitative varaible - sex</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -243,6 +254,7 @@ New to ggformula?  Try the interactive tutorials at
     https://www.mosaic-web.org/ggformula/</code></pre>
 </div>
 </div>
+</section>
 <section id="read-my-panel-a-csv-file" class="level2">
 <h2 class="anchored" data-anchor-id="read-my-panel-a-csv-file">read my panel a csv file</h2>
 <div class="cell">
@@ -270,7 +282,7 @@ dbl (3): hrsrelax, mntlhlth, hrs1
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 142 Columns: 6
+<pre><code>Rows: 33 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
 chr (2): country, continent
@@ -281,16 +293,7 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_A.csv"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_B.csv"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_C.csv"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>myPanelAData</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<section id="see-the-table" class="level3">
-<h3 class="anchored" data-anchor-id="see-the-table">1. See the table</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 507
 Columns: 7
@@ -302,7 +305,7 @@ $ waist_cm  &lt;dbl&gt; 71.5, 79.0, 83.2, 77.8, 80.0, 82.5, 82.0, 76.8, 68.5, 77
 $ hip_cm    &lt;dbl&gt; 93.5, 94.8, 95.0, 94.0, 98.5, 95.3, 101.0, 98.0, 89.5, 99.8,…
 $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 93.5…</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -495,7 +498,6 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </table>
 </div>
 </div>
-</section>
 <section id="ask" class="level3">
 <h3 class="anchored" data-anchor-id="ask">2. Ask</h3>
 <p>One question this table can answer. One it cannot. Write both. Who is heavier between men and women ? what is the proportion of men and women ? How does waist size vary for men and women? How does hip size vary for men and women? How does chest size vary for men and women? Which sex has a larger variation in their age ranges ? Who is taller between men and women ? What are the age ranges in the dataset ? What is the variation in chest size in the given dataset? What is the variation in waist size in the given dataset ? What is the variation in hip size in the given dataset ? What is the variation in height in the given dataset ? What is the variation in weight in the given dataset ?</p>
@@ -515,8 +517,27 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <p>What is the variation in hip size in the given dataset ? -density</p>
 <p>What is the variation in height in the given dataset ? -density</p>
 <p>What is the variation in weight in the given dataset ? -density</p>
+</section>
+<section id="predict" class="level3">
+<h3 class="anchored" data-anchor-id="predict">4. Predict</h3>
+<p>We predict the graph to depict the chest size and</p>
+</section>
+<section id="make" class="level3">
+<h3 class="anchored" data-anchor-id="make">5. Make</h3>
+<p>Who is heavier between men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>weight_kg,<span class="at">fill =</span> <span class="sc">~</span> sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>weight_kg,<span class="at">fill =</span> <span class="sc">~</span> sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what is the proportion of men and women ?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> sex,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -525,8 +546,12 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>How does waist size vary for men and women?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> sex,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>waist_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -535,11 +560,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>How does hip size vary for men and women?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>waist_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>hip_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -548,8 +571,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>How does chest size vary for men and women?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>hip_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>chest_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -558,8 +582,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>Which sex has a larger variation in their age ranges ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>chest_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age, <span class="at">fill =</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -568,8 +593,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>Who is taller between men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age, <span class="at">fill =</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>height_cm,<span class="at">fill =</span> <span class="sc">~</span> sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -578,8 +604,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What are the age ranges in the dataset ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>height_cm,<span class="at">fill =</span> <span class="sc">~</span> sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -588,8 +615,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What is the variation in weight in the given dataset?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> weight_kg,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -598,8 +626,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What is the variation in height in the given dataset?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> weight_kg,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> height_cm,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -608,8 +637,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What is the variation in waist size in the given dataset?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> height_cm,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> waist_cm,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -618,8 +648,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What is the variation in hip size in the given dataset?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> waist_cm,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> hip_cm,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -628,8 +659,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What is the variation in chest size in the given dataset?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> hip_cm,)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> chest_cm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -638,22 +670,15 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> chest_cm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="say" class="level3">
 <h3 class="anchored" data-anchor-id="say">6. Say</h3>
 <p>We all found the density graph comparing chest sizes of men and women interesting because according to the graph, men have a bigger chest size than women which is quite unexpected. Men also have larger variation in the sizes while women have more difference in density for different sizes. This is surprising because according to the bar graph, the ratio of women is slightly more than men, in comparison. We also found the density graph comparing hip size of men and women surprising because it is contrasting the general belief that women have wider hips.</p>
+</section>
+<section id="limit" class="level3">
+<h3 class="anchored" data-anchor-id="limit">7. Limit</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">mean_chest_cm=</span><span class="fu">mean</span>(chest_cm,<span class="at">na.rm=</span>T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">mean_chest_cm=</span><span class="fu">mean</span>(chest_cm,<span class="at">na.rm=</span>T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   sex    mean_chest_cm
@@ -663,7 +688,7 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(chest_cm <span class="sc">~</span> sex, <span class="at">data=</span> A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(chest_cm <span class="sc">~</span> sex, <span class="at">data=</span> A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Registered S3 method overwritten by 'mosaic':
   method                           from   
@@ -683,8 +708,18 @@ mean in group female   mean in group male
              86.0600             100.9899 </code></pre>
 </div>
 </div>
+</section>
+</section>
+</section>
+<section id="panel-b-category-talk" class="level1">
+<h1>Panel B — category / talk</h1>
+<p>degree × grass is Qual + Qual. mntlhlth is Quant — it belongs in a histogram or a grouped violin, not a mosaic.</p>
+<section id="see-the-table-1" class="level3">
+<h3 class="anchored" data-anchor-id="see-the-table-1">1. See the table</h3>
+<p>What is a case? Which columns are Quant / Qual? What is missing?</p>
+<p>The quantitative variables in the dataset are -hours of relaxation(hrsrelax), hours of labour (hrsl) and mental health(mntlhlth) {3} The qualitative variables in the dataset are-degree, marijuana(grass) {2}</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 2,044
 Columns: 5
@@ -694,7 +729,7 @@ $ hrs1     &lt;dbl&gt; 55, 45, NA, NA, NA, NA, 45, NA, 40, 48, 26, NA, 40, NA, N
 $ degree   &lt;chr&gt; "BACHELOR", "BACHELOR", "LT HIGH SCHOOL", "LT HIGH SCHOOL", "…
 $ grass    &lt;chr&gt; NA, "LEGAL", NA, "NOT LEGAL", "NOT LEGAL", "LEGAL", NA, NA, "…</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -858,17 +893,32 @@ $ grass    &lt;chr&gt; NA, "LEGAL", NA, "NOT LEGAL", "NOT LEGAL", "LEGAL", NA, N
 </table>
 </div>
 </div>
+</section>
+<section id="ask-1" class="level3">
+<h3 class="anchored" data-anchor-id="ask-1">2. Ask</h3>
+<p>Does the education of a person affect their opinions on whether grass should be legal or not?</p>
+</section>
+<section id="choose-a-mark-1" class="level3">
+<h3 class="anchored" data-anchor-id="choose-a-mark-1">3. Choose a mark</h3>
+<p>Does the education of a person affect their opánions on whether grass should be legal or not? - Mosaic Graph</p>
+</section>
+<section id="predict-1" class="level3">
+<h3 class="anchored" data-anchor-id="predict-1">4.Predict</h3>
+<p>we predict that a person pursuing a higher education degree would want marijuana to be legal, to regulate stress levels and mental health.</p>
+</section>
+<section id="make-1" class="level3">
+<h3 class="anchored" data-anchor-id="make-1">5. Make</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>B_mod <span class="ot">&lt;-</span> B <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(grass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>B_mod <span class="ot">&lt;-</span> B <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(grass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(B_mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(B_mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1259    5</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          degree BACHELOR GRADUATE HIGH SCHOOL JUNIOR COLLEGE LT HIGH SCHOOL
 grass                                                                       
@@ -877,7 +927,17 @@ NOT LEGAL             112       63         307             44            130</co
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B) <span class="sc">|&gt;</span> vcd <span class="sc">::</span> <span class="fu">mosaic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span> <span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B) <span class="sc">|&gt;</span> vcd<span class="sc">::</span> <span class="fu">mosaic</span>(<span class="at">labeling_args =</span> <span class="fu">list</span>(<span class="at">rot_labels =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">45</span>)), <span class="at">margins =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span> <span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B) <span class="sc">|&gt;</span> vcd<span class="sc">::</span> <span class="fu">mosaic</span>(<span class="at">type=</span><span class="st">"expected"</span>, <span class="at">labeling_args =</span> <span class="fu">list</span>(<span class="at">rot_labels =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">45</span>)), <span class="at">margins =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -886,18 +946,15 @@ NOT LEGAL             112       63         307             44            130</co
 </div>
 </div>
 </div>
+</section>
+<section id="say-1" class="level3">
+<h3 class="anchored" data-anchor-id="say-1">6. Say</h3>
+<p>looking at the graph, the ratio of people who think marijuana should be legal and not Legal appears to be similar, in each individual degree. Saying that, it is surprising information to see that the percentage of high schoolers who want marijuana to be legal is way larger than any other degrees. But this could also be because the number of high schoolers in this dataset is much more.</p>
+</section>
+<section id="limit-1" class="level3">
+<h3 class="anchored" data-anchor-id="limit-1">7. Limit</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B) <span class="sc">|&gt;</span> vcd <span class="sc">::</span> <span class="fu">mosaic</span>(<span class="at">type =</span><span class="st">"expected"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">xchisq.test</span>(degree <span class="sc">~</span> grass, <span class="at">data=</span>B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">xchisq.test</span>(degree <span class="sc">~</span> grass, <span class="at">data=</span>B)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -940,7 +997,8 @@ key:
 <p>This is the end…. Hold you breath and count to 10… - Adele</p>
 
 
-</section>
+<!-- -->
+
 </section>
 </section>
 
@@ -1015,6 +1073,57 @@ key:
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1344,7 +1453,286 @@ key:
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Group 3 — Bodies and talk"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Studio wall"</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Group names here"</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># Spine</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; How do bodies measure, how do people talk about mind and school, and how long do countries live?</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>This sentence stays at the top. Every panel must attach to it. If a plot cannot be introduced in a clause that hangs off this line, it is off the wall.</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction — the tables we own</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>This folder is ours for the ten days. Three tables, three shapes.</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Panel A** (<span class="in">`panel-A.csv`</span>) — body measures (<span class="in">`bdims`</span>): height, weight, waist, hip, chest, age, sex. Stand-in for NHANES when that package is not on the machine.</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Panel B** (<span class="in">`panel-B.csv`</span>) — GSS 2010: <span class="in">`degree`</span>, <span class="in">`grass`</span>, hours of work and rest. <span class="in">`mntlhlth`</span> is *days* of poor mental health — a Quant. Do not mosaic it.</span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Panel C** (<span class="in">`panel-C.csv`</span>) — gapminder 2007: life expectancy, GDP per capita, population by country.</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>Found tables train the mark. A campus Free Hunch, if we collect one, is a **made** panel of the same pair type — new people, old grammar. It does not replace A, B, or C.</span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="fu"># Panel A — body / measure</span></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>*height_cm, weight_kg, waist_cm are Quant. sex is Qual.*</span>
+<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. See the table</span></span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a>What is a case? Which columns are Quant / Qual? What is missing?</span>
+<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a>We have 6 quantitative variables in our data -  age,weight_kg,height_cm,wasit_cm,hip_cm,chest_cm</span>
+<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a>and only 1 qualitative varaible - sex </span>
+<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-42"><a href="#cb45-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-43"><a href="#cb45-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb45-44"><a href="#cb45-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb45-45"><a href="#cb45-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span>
+<span id="cb45-46"><a href="#cb45-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-47"><a href="#cb45-47" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb45-48"><a href="#cb45-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## read my panel a csv file</span></span>
+<span id="cb45-49"><a href="#cb45-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-52"><a href="#cb45-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-53"><a href="#cb45-53" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_A.csv"</span>)</span>
+<span id="cb45-54"><a href="#cb45-54" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_B.csv"</span>)</span>
+<span id="cb45-55"><a href="#cb45-55" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/panel_C.csv"</span>)</span>
+<span id="cb45-56"><a href="#cb45-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-57"><a href="#cb45-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-58"><a href="#cb45-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-59"><a href="#cb45-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-62"><a href="#cb45-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-63"><a href="#cb45-63" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(A)</span>
+<span id="cb45-64"><a href="#cb45-64" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(A)</span>
+<span id="cb45-65"><a href="#cb45-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-66"><a href="#cb45-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-67"><a href="#cb45-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-68"><a href="#cb45-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Ask</span></span>
+<span id="cb45-69"><a href="#cb45-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-70"><a href="#cb45-70" aria-hidden="true" tabindex="-1"></a>One question this table can answer. One it cannot. Write both. </span>
+<span id="cb45-71"><a href="#cb45-71" aria-hidden="true" tabindex="-1"></a>Who is heavier between men and women ? </span>
+<span id="cb45-72"><a href="#cb45-72" aria-hidden="true" tabindex="-1"></a>what is the proportion of men and women ? </span>
+<span id="cb45-73"><a href="#cb45-73" aria-hidden="true" tabindex="-1"></a>How does waist size vary for men and women? </span>
+<span id="cb45-74"><a href="#cb45-74" aria-hidden="true" tabindex="-1"></a>How does hip size vary for men and women? </span>
+<span id="cb45-75"><a href="#cb45-75" aria-hidden="true" tabindex="-1"></a>How does chest size vary for men and women?</span>
+<span id="cb45-76"><a href="#cb45-76" aria-hidden="true" tabindex="-1"></a>Which sex has a larger variation in their age ranges ? </span>
+<span id="cb45-77"><a href="#cb45-77" aria-hidden="true" tabindex="-1"></a>Who is taller between men and women ? </span>
+<span id="cb45-78"><a href="#cb45-78" aria-hidden="true" tabindex="-1"></a>What are the age ranges in the dataset ? </span>
+<span id="cb45-79"><a href="#cb45-79" aria-hidden="true" tabindex="-1"></a>What is the variation in chest size in the given dataset? </span>
+<span id="cb45-80"><a href="#cb45-80" aria-hidden="true" tabindex="-1"></a>What is the variation in waist size in the given dataset ? </span>
+<span id="cb45-81"><a href="#cb45-81" aria-hidden="true" tabindex="-1"></a>What is the variation in hip size in the given dataset ? </span>
+<span id="cb45-82"><a href="#cb45-82" aria-hidden="true" tabindex="-1"></a>What is the variation in height in the given dataset ? </span>
+<span id="cb45-83"><a href="#cb45-83" aria-hidden="true" tabindex="-1"></a>What is the variation in weight in the given dataset ?</span>
+<span id="cb45-84"><a href="#cb45-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-85"><a href="#cb45-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Choose a mark</span></span>
+<span id="cb45-86"><a href="#cb45-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-87"><a href="#cb45-87" aria-hidden="true" tabindex="-1"></a>Geom, map mark, or (later) test that matches the pair type. Name it before you code.</span>
+<span id="cb45-88"><a href="#cb45-88" aria-hidden="true" tabindex="-1"></a>Who is heavier between men and women ? -histogram</span>
+<span id="cb45-89"><a href="#cb45-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-90"><a href="#cb45-90" aria-hidden="true" tabindex="-1"></a>what is the proportion of men and women ? -bar graph</span>
+<span id="cb45-91"><a href="#cb45-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-92"><a href="#cb45-92" aria-hidden="true" tabindex="-1"></a>How does waist size vary for men and women? -histogram</span>
+<span id="cb45-93"><a href="#cb45-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-94"><a href="#cb45-94" aria-hidden="true" tabindex="-1"></a>How does hip size vary for men and women? -density</span>
+<span id="cb45-95"><a href="#cb45-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-96"><a href="#cb45-96" aria-hidden="true" tabindex="-1"></a>How does chest size vary for men and women -density</span>
+<span id="cb45-97"><a href="#cb45-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-98"><a href="#cb45-98" aria-hidden="true" tabindex="-1"></a>Which sex has a larger variation in their age ranges ? - bar</span>
+<span id="cb45-99"><a href="#cb45-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-100"><a href="#cb45-100" aria-hidden="true" tabindex="-1"></a>Who is taller between men and women ? -histogram</span>
+<span id="cb45-101"><a href="#cb45-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-102"><a href="#cb45-102" aria-hidden="true" tabindex="-1"></a>What are the age ranges in the dataset ? -bar</span>
+<span id="cb45-103"><a href="#cb45-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-104"><a href="#cb45-104" aria-hidden="true" tabindex="-1"></a>What is the variation in chest size in the given dataset? -density</span>
+<span id="cb45-105"><a href="#cb45-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-106"><a href="#cb45-106" aria-hidden="true" tabindex="-1"></a>What is the variation in waist size in the given dataset ? -density</span>
+<span id="cb45-107"><a href="#cb45-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-108"><a href="#cb45-108" aria-hidden="true" tabindex="-1"></a>What is the variation in hip size in the given dataset ? -density</span>
+<span id="cb45-109"><a href="#cb45-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-110"><a href="#cb45-110" aria-hidden="true" tabindex="-1"></a>What is the variation in height in the given dataset ? -density</span>
+<span id="cb45-111"><a href="#cb45-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-112"><a href="#cb45-112" aria-hidden="true" tabindex="-1"></a>What is the variation in weight in the given dataset ? -density</span>
+<span id="cb45-113"><a href="#cb45-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-114"><a href="#cb45-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4. Predict </span></span>
+<span id="cb45-115"><a href="#cb45-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-116"><a href="#cb45-116" aria-hidden="true" tabindex="-1"></a>We predict the graph to depict the chest size and </span>
+<span id="cb45-117"><a href="#cb45-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-118"><a href="#cb45-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Make </span></span>
+<span id="cb45-119"><a href="#cb45-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-120"><a href="#cb45-120" aria-hidden="true" tabindex="-1"></a>Who is heavier between men and women ?</span>
+<span id="cb45-123"><a href="#cb45-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-124"><a href="#cb45-124" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>weight_kg,<span class="at">fill =</span> <span class="sc">~</span> sex,<span class="at">bins =</span> <span class="dv">50</span>)</span>
+<span id="cb45-125"><a href="#cb45-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-126"><a href="#cb45-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-127"><a href="#cb45-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-128"><a href="#cb45-128" aria-hidden="true" tabindex="-1"></a>what is the proportion of men and women ?</span>
+<span id="cb45-131"><a href="#cb45-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-132"><a href="#cb45-132" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> sex,<span class="at">fill=</span> <span class="sc">~</span> sex)</span>
+<span id="cb45-133"><a href="#cb45-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-134"><a href="#cb45-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-135"><a href="#cb45-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-136"><a href="#cb45-136" aria-hidden="true" tabindex="-1"></a>How does waist size vary for men and women?</span>
+<span id="cb45-139"><a href="#cb45-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-140"><a href="#cb45-140" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>waist_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span>
+<span id="cb45-141"><a href="#cb45-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-142"><a href="#cb45-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-143"><a href="#cb45-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-144"><a href="#cb45-144" aria-hidden="true" tabindex="-1"></a>How does hip size vary for men and women?</span>
+<span id="cb45-147"><a href="#cb45-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-148"><a href="#cb45-148" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>hip_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span>
+<span id="cb45-149"><a href="#cb45-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-150"><a href="#cb45-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-151"><a href="#cb45-151" aria-hidden="true" tabindex="-1"></a>How does chest size vary for men and women?</span>
+<span id="cb45-154"><a href="#cb45-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-155"><a href="#cb45-155" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>chest_cm,<span class="at">fill=</span> <span class="sc">~</span> sex)</span>
+<span id="cb45-156"><a href="#cb45-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-157"><a href="#cb45-157" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-158"><a href="#cb45-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-159"><a href="#cb45-159" aria-hidden="true" tabindex="-1"></a>Which sex has a larger variation in their age ranges ?</span>
+<span id="cb45-162"><a href="#cb45-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-163"><a href="#cb45-163" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age, <span class="at">fill =</span> <span class="sc">~</span> sex)</span>
+<span id="cb45-164"><a href="#cb45-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-165"><a href="#cb45-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-166"><a href="#cb45-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-167"><a href="#cb45-167" aria-hidden="true" tabindex="-1"></a>Who is taller between men and women ?</span>
+<span id="cb45-170"><a href="#cb45-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-171"><a href="#cb45-171" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>height_cm,<span class="at">fill =</span> <span class="sc">~</span> sex,<span class="at">bins =</span> <span class="dv">50</span>)</span>
+<span id="cb45-172"><a href="#cb45-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-173"><a href="#cb45-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-174"><a href="#cb45-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-175"><a href="#cb45-175" aria-hidden="true" tabindex="-1"></a>What are the age ranges in the dataset ?</span>
+<span id="cb45-178"><a href="#cb45-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-179"><a href="#cb45-179" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age,)</span>
+<span id="cb45-180"><a href="#cb45-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-181"><a href="#cb45-181" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-182"><a href="#cb45-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-183"><a href="#cb45-183" aria-hidden="true" tabindex="-1"></a>What is the variation in weight in the given dataset?</span>
+<span id="cb45-186"><a href="#cb45-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-187"><a href="#cb45-187" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> weight_kg,)</span>
+<span id="cb45-188"><a href="#cb45-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-189"><a href="#cb45-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-190"><a href="#cb45-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-191"><a href="#cb45-191" aria-hidden="true" tabindex="-1"></a>What is the variation in height in the given dataset?</span>
+<span id="cb45-194"><a href="#cb45-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-195"><a href="#cb45-195" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> height_cm,)</span>
+<span id="cb45-196"><a href="#cb45-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-197"><a href="#cb45-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-198"><a href="#cb45-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-199"><a href="#cb45-199" aria-hidden="true" tabindex="-1"></a>What is the variation in waist size in the given dataset?</span>
+<span id="cb45-202"><a href="#cb45-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-203"><a href="#cb45-203" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> waist_cm,)</span>
+<span id="cb45-204"><a href="#cb45-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-205"><a href="#cb45-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-206"><a href="#cb45-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-207"><a href="#cb45-207" aria-hidden="true" tabindex="-1"></a>What is the variation in hip size in the given dataset?</span>
+<span id="cb45-210"><a href="#cb45-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-211"><a href="#cb45-211" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> hip_cm,)</span>
+<span id="cb45-212"><a href="#cb45-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-213"><a href="#cb45-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-214"><a href="#cb45-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-215"><a href="#cb45-215" aria-hidden="true" tabindex="-1"></a>What is the variation in chest size in the given dataset?</span>
+<span id="cb45-218"><a href="#cb45-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-219"><a href="#cb45-219" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> chest_cm)</span>
+<span id="cb45-220"><a href="#cb45-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-221"><a href="#cb45-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-222"><a href="#cb45-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-223"><a href="#cb45-223" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6. Say</span></span>
+<span id="cb45-224"><a href="#cb45-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-225"><a href="#cb45-225" aria-hidden="true" tabindex="-1"></a>We all found the density graph comparing chest sizes of men and women interesting because according to the graph, men have a bigger chest size than women which is quite unexpected. Men also have larger variation in the sizes while women have more difference in density for different sizes. This is surprising because according to the bar graph, the ratio of women is slightly more than men, in comparison. We also found the density graph comparing hip size of men and women surprising because it is contrasting the general belief that women have wider hips.</span>
+<span id="cb45-226"><a href="#cb45-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-227"><a href="#cb45-227" aria-hidden="true" tabindex="-1"></a><span class="fu">### 7. Limit</span></span>
+<span id="cb45-228"><a href="#cb45-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-231"><a href="#cb45-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-232"><a href="#cb45-232" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">mean_chest_cm=</span><span class="fu">mean</span>(chest_cm,<span class="at">na.rm=</span>T))</span>
+<span id="cb45-233"><a href="#cb45-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-234"><a href="#cb45-234" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-235"><a href="#cb45-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-238"><a href="#cb45-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-239"><a href="#cb45-239" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(chest_cm <span class="sc">~</span> sex, <span class="at">data=</span> A)</span>
+<span id="cb45-240"><a href="#cb45-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-241"><a href="#cb45-241" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-242"><a href="#cb45-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-243"><a href="#cb45-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-244"><a href="#cb45-244" aria-hidden="true" tabindex="-1"></a><span class="fu"># Panel B — category / talk</span></span>
+<span id="cb45-245"><a href="#cb45-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-246"><a href="#cb45-246" aria-hidden="true" tabindex="-1"></a>degree × grass is Qual + Qual. mntlhlth is Quant — it belongs in a histogram or a grouped violin, not a mosaic.</span>
+<span id="cb45-247"><a href="#cb45-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-248"><a href="#cb45-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. See the table</span></span>
+<span id="cb45-249"><a href="#cb45-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-250"><a href="#cb45-250" aria-hidden="true" tabindex="-1"></a>What is a case? Which columns are Quant / Qual? What is missing?</span>
+<span id="cb45-251"><a href="#cb45-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-252"><a href="#cb45-252" aria-hidden="true" tabindex="-1"></a>The quantitative variables in  the dataset are -hours of relaxation(hrsrelax), hours of labour (hrsl) and mental health(mntlhlth) {3}</span>
+<span id="cb45-253"><a href="#cb45-253" aria-hidden="true" tabindex="-1"></a>The qualitative variables in  the dataset are-degree, marijuana(grass) {2}</span>
+<span id="cb45-254"><a href="#cb45-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-257"><a href="#cb45-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-258"><a href="#cb45-258" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(B)</span>
+<span id="cb45-259"><a href="#cb45-259" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(B)</span>
+<span id="cb45-260"><a href="#cb45-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-261"><a href="#cb45-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-262"><a href="#cb45-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-263"><a href="#cb45-263" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Ask</span></span>
+<span id="cb45-264"><a href="#cb45-264" aria-hidden="true" tabindex="-1"></a>Does the education of a person affect their opinions on whether grass should be legal or not?</span>
+<span id="cb45-265"><a href="#cb45-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-266"><a href="#cb45-266" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3. Choose a mark</span></span>
+<span id="cb45-267"><a href="#cb45-267" aria-hidden="true" tabindex="-1"></a>Does the education of a person affect their opánions on whether grass should be legal or not?</span>
+<span id="cb45-268"><a href="#cb45-268" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mosaic Graph</span>
+<span id="cb45-269"><a href="#cb45-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-270"><a href="#cb45-270" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.Predict</span></span>
+<span id="cb45-271"><a href="#cb45-271" aria-hidden="true" tabindex="-1"></a>we predict that a person pursuing a higher education degree would want marijuana to be legal, to regulate</span>
+<span id="cb45-272"><a href="#cb45-272" aria-hidden="true" tabindex="-1"></a>stress levels and mental health.</span>
+<span id="cb45-273"><a href="#cb45-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-274"><a href="#cb45-274" aria-hidden="true" tabindex="-1"></a><span class="fu">### 5. Make</span></span>
+<span id="cb45-277"><a href="#cb45-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-278"><a href="#cb45-278" aria-hidden="true" tabindex="-1"></a>B_mod <span class="ot">&lt;-</span> B <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(grass)</span>
+<span id="cb45-279"><a href="#cb45-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-280"><a href="#cb45-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-281"><a href="#cb45-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-284"><a href="#cb45-284" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-285"><a href="#cb45-285" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(B_mod)</span>
+<span id="cb45-286"><a href="#cb45-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-287"><a href="#cb45-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-288"><a href="#cb45-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-291"><a href="#cb45-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-292"><a href="#cb45-292" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B)</span>
+<span id="cb45-293"><a href="#cb45-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-294"><a href="#cb45-294" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-295"><a href="#cb45-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-298"><a href="#cb45-298" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-299"><a href="#cb45-299" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span> <span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B) <span class="sc">|&gt;</span> vcd<span class="sc">::</span> <span class="fu">mosaic</span>(<span class="at">labeling_args =</span> <span class="fu">list</span>(<span class="at">rot_labels =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">45</span>)), <span class="at">margins =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">6</span>))</span>
+<span id="cb45-300"><a href="#cb45-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-301"><a href="#cb45-301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-302"><a href="#cb45-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-305"><a href="#cb45-305" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-306"><a href="#cb45-306" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span> <span class="fu">structable</span>(degree <span class="sc">~</span> grass, <span class="at">data =</span> B) <span class="sc">|&gt;</span> vcd<span class="sc">::</span> <span class="fu">mosaic</span>(<span class="at">type=</span><span class="st">"expected"</span>, <span class="at">labeling_args =</span> <span class="fu">list</span>(<span class="at">rot_labels =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">45</span>)), <span class="at">margins =</span> <span class="fu">c</span>(<span class="at">top =</span> <span class="dv">6</span>))</span>
+<span id="cb45-307"><a href="#cb45-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-308"><a href="#cb45-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-309"><a href="#cb45-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-310"><a href="#cb45-310" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6. Say</span></span>
+<span id="cb45-311"><a href="#cb45-311" aria-hidden="true" tabindex="-1"></a>looking at the graph, the ratio of people who think marijuana should be legal and not Legal appears to be similar, in each individual degree.</span>
+<span id="cb45-312"><a href="#cb45-312" aria-hidden="true" tabindex="-1"></a>Saying that, it is surprising information to see that the percentage of high schoolers who want marijuana to be legal is way larger than any other degrees.</span>
+<span id="cb45-313"><a href="#cb45-313" aria-hidden="true" tabindex="-1"></a>But this could also be because the number of high schoolers in this dataset is much more.</span>
+<span id="cb45-314"><a href="#cb45-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-315"><a href="#cb45-315" aria-hidden="true" tabindex="-1"></a><span class="fu">### 7. Limit</span></span>
+<span id="cb45-316"><a href="#cb45-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-319"><a href="#cb45-319" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb45-320"><a href="#cb45-320" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">xchisq.test</span>(degree <span class="sc">~</span> grass, <span class="at">data=</span>B)</span>
+<span id="cb45-321"><a href="#cb45-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-322"><a href="#cb45-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb45-323"><a href="#cb45-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-324"><a href="#cb45-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-325"><a href="#cb45-325" aria-hidden="true" tabindex="-1"></a>This is the end....</span>
+<span id="cb45-326"><a href="#cb45-326" aria-hidden="true" tabindex="-1"></a>Hold you breath and count to 10...</span>
+<span id="cb45-327"><a href="#cb45-327" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Adele</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
