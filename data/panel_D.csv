@@ -1,0 +1,18 @@
+Section,Field,Value,Notes
+About the Case,Film / case,Erin Brockovich (2000),"Based on the true story of groundwater contamination in Hinkley, California."
+About the Case,Company,Pacific Gas and Electric Company (PG&E),The Hinkley natural gas compressor station was linked to chromium-6 contamination in local groundwater.
+Important Locations,Community,"Hinkley, California",Approximate map reference.
+Important Locations,Latitude,34.933,Approximate community reference; degrees north.
+Important Locations,Longitude,-117.2,Approximate community reference; degrees west.
+Important Locations,Facility,PG&E Hinkley Gas Compressor Station,Previously proposed coordinates; verify against an official map before treating as exact.
+Important Locations,Facility latitude,34.932745,Previously proposed coordinates; verify before use.
+Important Locations,Facility longitude,-117.164512,Previously proposed coordinates; verify before use.
+Groundwater Contamination,Plume boundary,Not provided in source document,Use the official California Water Board plume boundary/map; do not draw an unverified boundary.
+Residents Connected to the Case,Residents,Roberta Walker and Greg Walker,Names identified in the draft; confirm names and spelling against reliable reporting before publication.
+Residents Connected to the Case,Residents,Penny Harper,Names identified in the draft; confirm names and spelling against reliable reporting before publication.
+Residents Connected to the Case,Residents,Daron Banks,Names identified in the draft; confirm names and spelling against reliable reporting before publication.
+Residents Connected to the Case,Residents,Leon Park and JoEll Park,Names identified in the draft; confirm names and spelling against reliable reporting before publication.
+Residents Connected to the Case,Residents,Roger Killian,Names identified in the draft; confirm names and spelling against reliable reporting before publication.
+Map Focus,Instruction,Plot Hinkley community and PG&E compressor station,Add the official groundwater contamination plume boundary when a reliable map or GIS boundary is available.
+Source,Organization,California State Water Resources Control Board,PG&E Hinkley Chromium Cleanup
+Source,URL,https://www.waterboards.ca.gov/lahontan/water_issues/projects/pge/,Source for location and plume information.
